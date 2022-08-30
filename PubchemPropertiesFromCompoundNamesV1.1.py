@@ -114,7 +114,7 @@ def compoundName_to_Property(compoundName, tableType, Property):
             Property = "Failed"
             return Property
             
-        # Give the reply in JSON format, access and return the isomeric SMILES code
+        # Give the reply in JSON format, access and store your property
         if request is not None:
             reply = request.read()
             if reply is not None and len(reply) > 0:
