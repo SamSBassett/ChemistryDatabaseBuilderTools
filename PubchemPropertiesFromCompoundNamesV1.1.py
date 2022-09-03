@@ -5,6 +5,8 @@
 #####################################################################
 
 '''
+Arguments for running in command line [1]: input file name, [2]: output file name
+
 This script automates retrieval of molecular formulas, monoisotpic mass, isomeric 
 SMILES codes, and CIDs from Pubchem given a list of compound names in the form of a CSV.
 The header of the first column should be "compoundName" and the csv must be saved
@@ -18,7 +20,7 @@ Code adapted from Angelika Keller: https://kellerbits.net/wordpress/?p=326
 '''
 
 # Import the library necessary for making a web service request.
-from os import chdir
+import sys
 import urllib.request
 import urllib.error
 import json
@@ -38,15 +40,12 @@ def main(inputFile, outputFile):
     with open(output_file_name, "w", encoding = 'utf-8-sig' ) as file:
         file.write(final)
     
-# Define working directory
-chdir('C://Users//whoever//wherever')
-
 # Specify input file name
-input_file_name = "input_file.csv"
+input_file_name = sys.argv[1]
 
 # Specify desired output file name
-output_file_name = "RESULT_file.csv"
-    
+output_file_name = sys.argv[2]
+
 # Function to map all your collected info to your csv file
 def map_name_list_to_csv(list_name):
     output = ''
